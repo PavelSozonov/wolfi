@@ -23,7 +23,7 @@ docker run --rm --platform linux/amd64 \
       https://packages.wolfi.dev/os/x86_64/APKINDEX.tar.gz
 
     # 5) Fetch the actual .apk binaries into the container’s working dir
-    apk fetch --recursive ca-certificates openssl wget python-3.13 curl
+    apk fetch --recursive ca-certificates openssl wget python-3.13 curl nodejs-22 build-base
 
     # 6) Move the binaries into your offline repo layout
     mv *.apk /offline/os/x86_64/
