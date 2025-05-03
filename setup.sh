@@ -16,14 +16,14 @@ docker run --rm --platform linux/amd64 \
     apk update
 
     # 3) Install the tools needed to mirror the index and packages
-    apk add --no-cache wget openssl ca-certificates
+    apk add --no-cache wget
 
     # 4) Mirror the Wolfi APKINDEX into your offline directory
     wget -qO /offline/os/x86_64/APKINDEX.tar.gz \
       https://packages.wolfi.dev/os/x86_64/APKINDEX.tar.gz
 
     # 5) Fetch the actual .apk binaries into the container’s working dir
-    apk fetch --recursive ca-certificates openssl wget
+    apk fetch --recursive ca-certificates openssl wget python-3.13 curl
 
     # 6) Move the binaries into your offline repo layout
     mv *.apk /offline/os/x86_64/
